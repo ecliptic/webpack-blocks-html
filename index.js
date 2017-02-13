@@ -5,26 +5,16 @@
  */
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import merge from 'deepmerge'
 
-/**
- * @param {object} [options]
- * @param {string} [options.filename] - The file to write HTML to.
- * @param {string} [options.template] - The Webpack require path to the template.
- * @param {boolean} [options.showErrors] - If true (default), error details will be written to the HTML page.
- * @return {Function}
- */
-export default function html ({filename, template, showErrors = true}) {
+export default function html (options) {
   return Object.assign(context => {
+    // Merge the provided html config into the context
+    const html = context.html || {}
+
     /* Warning: Thar be mutation ahead! */
     /* eslint-disable fp/no-mutation */
-
-    // Write html config into the context
-    context.html = context.html || {}
-
-    context.html.filename = filename
-    context.html.template = template
-    context.html.showErrors = showErrors
-
+    context.html = merge([html, options], {clone: true})
     /* eslint-enable fp/no-mutation */
 
     // Return empty config snippet (configuration will be created by the post hook)
@@ -35,6 +25,7 @@ export default function html ({filename, template, showErrors = true}) {
 function postConfig (context) {
   const htmlOptions = Object.assign({}, context.html)
 
+  /* Warning: Thar be class instantiation ahead! */
   /* eslint-disable better/no-new */
   const plugin = new HtmlWebpackPlugin(htmlOptions)
   /* eslint-enable better/no-new */
