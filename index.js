@@ -14,7 +14,7 @@ export default function html (options) {
 
     /* Warning: Thar be mutation ahead! */
     /* eslint-disable fp/no-mutation */
-    context.html = merge([html, options], {clone: true})
+    context.html = merge(html, options, {clone: true})
     /* eslint-enable fp/no-mutation */
 
     // Return empty config snippet (configuration will be created by the post hook)
@@ -23,11 +23,9 @@ export default function html (options) {
 }
 
 function postConfig (context) {
-  const htmlOptions = Object.assign({}, context.html)
-
   /* Warning: Thar be class instantiation ahead! */
   /* eslint-disable better/no-new */
-  const plugin = new HtmlWebpackPlugin(htmlOptions)
+  const plugin = new HtmlWebpackPlugin(context.html)
   /* eslint-enable better/no-new */
 
   return {plugins: [plugin]}
