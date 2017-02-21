@@ -9,8 +9,14 @@ import merge from 'deepmerge'
 
 export default function html (options) {
   return Object.assign(context => {
+    const defaultOpts = {
+      filename: 'index.html',
+      template: 'templates/index.html',
+      showErrors: false,
+    }
+
     // Merge the provided html config into the context
-    const html = context.html || {}
+    const html = context.html || defaultOpts
 
     /* Warning: Thar be mutation ahead! */
     /* eslint-disable fp/no-mutation */
