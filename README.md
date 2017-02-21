@@ -40,6 +40,12 @@ export default createConfig([
 
 See the options list [here](https://github.com/jantimon/html-webpack-plugin#configuration).
 
+Defaults:
+
+* *filename:* 'index.html'
+* *template:* 'templates/index.html'
+* *showErrors:* false
+
 # License
 
 This project is licensed under [MIT](https://github.com/ecliptic/webpack-blocks-html/blob/master/LICENSE).
