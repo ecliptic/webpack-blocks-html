@@ -46,6 +46,6 @@ Defaults:
 * *template:* 'templates/index.html'
 * *showErrors:* false
 
-# License
+## License
 
 This project is licensed under [MIT](https://github.com/ecliptic/webpack-blocks-html/blob/master/LICENSE).
