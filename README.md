@@ -28,11 +28,7 @@ export default createConfig([
   entryPoint(['babel-polyfill', './src/Main.js']),
   setOutput('./build/bundle.js'),
   babel(),
-  html({
-    filename: 'index.html',
-    template: 'assets/index.html',
-    showErrors: false,
-  }),
+  html({template: 'assets/index.html'}),
 ])
 ```
 
