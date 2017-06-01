@@ -5,6 +5,11 @@ A [webpack-block](https://github.com/andywer/webpack-blocks) for [html-webpack-p
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![NPM Version](https://img.shields.io/npm/v/webpack-blocks-html.svg)](https://www.npmjs.com/package/webpack-blocks-html)
 
+*Version compatibility:*
+
+* webpack-blocks v0._x_ -> webpack-blocks-html [v1._x_](https://github.com/ecliptic/webpack-blocks-copy/tree/master) (@latest)
+* webpack-blocks v1._x_ -> DEPRECATED: Merged into [webpack-blocks-utils](https://github.com/ecliptic/webpack-blocks-utils)
+
 ## Installation
 
 ```sh
